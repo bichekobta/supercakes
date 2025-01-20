@@ -55,7 +55,7 @@ def get_bot_response(messages):
             image_context = "\nEl cliente ha proporcionado imágenes de referencia para el diseño del pastel."
 
         response = client.chat.completions.create(
-            model="gpt-4.0",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": f"""
                 Eres un asistente virtual para Supercakes, una pastelería personalizada.
