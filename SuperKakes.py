@@ -29,7 +29,7 @@ PRICES = {
 }
 
 # Configuración de OpenAI
-api_key = "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"
+api_key = st.secrets["OPENAI_API_KEY"]  # Cambiamos la API key hardcodeada por una variable
 client = OpenAI(api_key=api_key)
 
 def get_bot_response(messages):
