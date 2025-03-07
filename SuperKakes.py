@@ -41,6 +41,7 @@ def get_bot_response(messages):
                 Eres un asistente virtual para Supercakes, una pastelería personalizada.
                 
                 REGLAS ESTRICTAS DE FORMATO:
+                - Si el cliente te solicita un pastel para hoy o menos de 8 dias, debes decirle que no es posible, que debe tener por lo menos 8 dias de anticipacion.
                 - Usa solo texto plano sin formato
                 - No uses cursivas, negritas ni otros formatos especiales
                 - Al mencionar precios, usa este formato exacto: "$X pesos"
