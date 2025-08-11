@@ -1,9 +1,6 @@
 import streamlit as st
 from openai import OpenAI
-import json
-from datetime import datetime, timedelta
-import pandas as pd
-import os
+import re
 
 # Configuración inicial de Streamlit
 st.set_page_config(page_title="Supercakes - Asistente Virtual", page_icon="🎂")
@@ -95,12 +92,11 @@ def calculate_price(portions, custom_design=True):
 def update_order_details(prompt):
     # Actualizar porciones
     if "porciones" in prompt.lower():
-        try:
-            portions = int(''.join(filter(str.isdigit, prompt)))
+        match = re.search(r"\d+", prompt)
+        if match:
+            portions = int(match.group())
             st.session_state.current_order['portions'] = portions
             st.session_state.current_order['price'] = calculate_price(portions)
-        except:
-            pass
     
     # Actualizar sabor
     if any(flavor.lower() in prompt.lower() for flavor in FLAVORS):
